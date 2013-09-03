@@ -8,6 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_OPTIONS(NSInteger, IconDeviceType) {
+    IconTypePhone,
+    IconTypePad
+};
+
+typedef NS_OPTIONS(NSInteger, IconType) {
+    IconTypeHomeScreen,
+    IconTypeSearch,
+    IconTypeSpotlight
+};
+
+typedef NS_OPTIONS(NSInteger, IconOSVersion) {
+    IconOSVersion_6_1,
+    IconOSVersion_7_0
+};
+
 @interface IconGenerator : NSObject
 
 + (NSDictionary *)iconSizesDictionary;

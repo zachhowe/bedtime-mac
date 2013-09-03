@@ -31,6 +31,40 @@
     return sizes;
 }
 
++ (NSDictionary *)iconSizesDictionaryWithDeviceTypes:(IconDeviceType)deviceTypes iconTypes:(IconType)iconTypes osVersions:(IconOSVersion)osVersions
+{
+    NSMutableDictionary *sizes = [NSMutableDictionary dictionary];
+    
+    if ((deviceTypes & IconTypePhone) == IconTypePhone) {
+        if ((iconTypes & IconTypeHomeScreen) == IconTypeHomeScreen) {
+            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_6_1) {
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(57, 57)] forKey:@"Icon-57"]; // iPhone @2x
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(114, 114)] forKey:@"Icon-114"]; // iPhone @2x
+            }
+            
+            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_7_0) {
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(120, 120)] forKey:@"Icon-120"]; // iPhone @2x
+            }
+        }
+    }
+    
+    if ((deviceTypes & IconTypePad) == IconTypePad) {
+        if ((iconTypes & IconTypeHomeScreen) == IconTypeHomeScreen) {
+            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_6_1) {
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(72, 72)] forKey:@"Icon-72"]; // iPad @1x
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(144, 144)] forKey:@"Icon-144"]; // iPad @2x
+            }
+            
+            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_7_0) {
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(76, 76)] forKey:@"Icon-76"]; // iPad @1x
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(152, 152)] forKey:@"Icon-152"]; // iPad @2x
+            }
+        }
+    }
+    
+    return sizes;
+}
+
 + (void)saveImage:(NSImage *)image filePath:(NSString *)filePath type:(NSBitmapImageFileType)type
 {
     if (type != NSPNGFileType) {
