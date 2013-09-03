@@ -18,6 +18,7 @@
 		8A0E3E4E17D5AE2900B2E4C2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0E3E2D17D5AE2900B2E4C2 /* Cocoa.framework */; };
 		8A0E3E5617D5AE2900B2E4C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E3E5417D5AE2900B2E4C2 /* InfoPlist.strings */; };
 		8A0E3E5817D5AE2900B2E4C2 /* BedtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E5717D5AE2900B2E4C2 /* BedtimeTests.m */; };
+		8A0E3E6317D5AEEA00B2E4C2 /* IconGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		8A0E3E5317D5AE2900B2E4C2 /* BedtimeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BedtimeTests-Info.plist"; sourceTree = "<group>"; };
 		8A0E3E5517D5AE2900B2E4C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8A0E3E5717D5AE2900B2E4C2 /* BedtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedtimeTests.m; sourceTree = "<group>"; };
+		8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconGenerator.h; sourceTree = "<group>"; };
+		8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +121,8 @@
 				8A0E3E3F17D5AE2900B2E4C2 /* AppDelegate.h */,
 				8A0E3E4017D5AE2900B2E4C2 /* AppDelegate.m */,
 				8A0E3E4217D5AE2900B2E4C2 /* MainMenu.xib */,
+				8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */,
+				8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */,
 				8A0E3E4517D5AE2900B2E4C2 /* Images.xcassets */,
 				8A0E3E3417D5AE2900B2E4C2 /* Supporting Files */,
 			);
@@ -253,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8A0E3E4117D5AE2900B2E4C2 /* AppDelegate.m in Sources */,
+				8A0E3E6317D5AEEA00B2E4C2 /* IconGenerator.m in Sources */,
 				8A0E3E3A17D5AE2900B2E4C2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +472,7 @@
 				8A0E3E5D17D5AE2900B2E4C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8A0E3E5E17D5AE2900B2E4C2 /* Build configuration list for PBXNativeTarget "BedtimeTests" */ = {
 			isa = XCConfigurationList;
@@ -474,6 +481,7 @@
 				8A0E3E6017D5AE2900B2E4C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
