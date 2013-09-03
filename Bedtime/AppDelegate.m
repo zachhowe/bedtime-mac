@@ -28,8 +28,6 @@ static CGSize ORIGINAL_SIZE;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
-    
     [self updatePreview:nil];
 }
 
