@@ -12,13 +12,13 @@
 		8A0E3E3A17D5AE2900B2E4C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E3917D5AE2900B2E4C2 /* main.m */; };
 		8A0E3E3E17D5AE2900B2E4C2 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E3E3C17D5AE2900B2E4C2 /* Credits.rtf */; };
 		8A0E3E4117D5AE2900B2E4C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E4017D5AE2900B2E4C2 /* AppDelegate.m */; };
-		8A0E3E4417D5AE2900B2E4C2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E3E4217D5AE2900B2E4C2 /* MainMenu.xib */; };
 		8A0E3E4617D5AE2900B2E4C2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E3E4517D5AE2900B2E4C2 /* Images.xcassets */; };
 		8A0E3E4D17D5AE2900B2E4C2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0E3E4C17D5AE2900B2E4C2 /* XCTest.framework */; };
 		8A0E3E4E17D5AE2900B2E4C2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0E3E2D17D5AE2900B2E4C2 /* Cocoa.framework */; };
 		8A0E3E5617D5AE2900B2E4C2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E3E5417D5AE2900B2E4C2 /* InfoPlist.strings */; };
 		8A0E3E5817D5AE2900B2E4C2 /* BedtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E5717D5AE2900B2E4C2 /* BedtimeTests.m */; };
 		8A0E3E6317D5AEEA00B2E4C2 /* IconGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */; };
+		8A83051917D6621100F57748 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A83051B17D6621100F57748 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 		8A0E3E3D17D5AE2900B2E4C2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		8A0E3E3F17D5AE2900B2E4C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8A0E3E4017D5AE2900B2E4C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8A0E3E4317D5AE2900B2E4C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8A0E3E4517D5AE2900B2E4C2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8A0E3E4B17D5AE2900B2E4C2 /* BedtimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BedtimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A0E3E4C17D5AE2900B2E4C2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -53,6 +52,7 @@
 		8A0E3E5717D5AE2900B2E4C2 /* BedtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedtimeTests.m; sourceTree = "<group>"; };
 		8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconGenerator.h; sourceTree = "<group>"; };
 		8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconGenerator.m; sourceTree = "<group>"; };
+		8A83051A17D6621100F57748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 			children = (
 				8A0E3E3F17D5AE2900B2E4C2 /* AppDelegate.h */,
 				8A0E3E4017D5AE2900B2E4C2 /* AppDelegate.m */,
-				8A0E3E4217D5AE2900B2E4C2 /* MainMenu.xib */,
+				8A83051B17D6621100F57748 /* MainMenu.xib */,
 				8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */,
 				8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */,
 				8A0E3E4517D5AE2900B2E4C2 /* Images.xcassets */,
@@ -241,7 +241,7 @@
 				8A0E3E3817D5AE2900B2E4C2 /* InfoPlist.strings in Resources */,
 				8A0E3E4617D5AE2900B2E4C2 /* Images.xcassets in Resources */,
 				8A0E3E3E17D5AE2900B2E4C2 /* Credits.rtf in Resources */,
-				8A0E3E4417D5AE2900B2E4C2 /* MainMenu.xib in Resources */,
+				8A83051917D6621100F57748 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,20 +301,20 @@
 			name = Credits.rtf;
 			sourceTree = "<group>";
 		};
-		8A0E3E4217D5AE2900B2E4C2 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8A0E3E4317D5AE2900B2E4C2 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
 		8A0E3E5417D5AE2900B2E4C2 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8A0E3E5517D5AE2900B2E4C2 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8A83051B17D6621100F57748 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8A83051A17D6621100F57748 /* Base */,
+			);
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
