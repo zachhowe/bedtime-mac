@@ -10,6 +10,33 @@
 
 @implementation IconGenerator
 
++ (NSImage *)resizeImage:(NSImage *)originalImage size:(NSSize)newSize
+{
+    NSImage *sourceImage = [originalImage copy];
+    [sourceImage setScalesWhenResized:YES];
+    
+    if (![sourceImage isValid])
+    {
+        NSLog(@"Invalid Image");
+        return nil;
+    }
+    
+    NSImage *smallImage = [[NSImage alloc] initWithSize: newSize];
+    [smallImage lockFocus];
+    [sourceImage setSize: newSize];
+    
+    [[NSGraphicsContext currentContext] setImageInterpolation:NSImageInterpolationHigh];
+    
+    [sourceImage drawAtPoint:NSZeroPoint
+                    fromRect:CGRectMake(0, 0, sourceImage.size.width, sourceImage.size.height)
+                   operation:NSCompositeCopy
+                    fraction:(sourceImage.size.width / newSize.width)];
+    
+    [smallImage unlockFocus];
+    
+    return smallImage;
+}
+
 + (NSDictionary *)iconSizesDictionary
 {
     NSMutableDictionary *sizes = [NSMutableDictionary dictionary];
@@ -31,35 +58,42 @@
     return sizes;
 }
 
-+ (NSDictionary *)iconSizesDictionaryWithDeviceTypes:(IconDeviceType)deviceTypes iconTypes:(IconType)iconTypes osVersions:(IconOSVersion)osVersions
++ (NSDictionary *)iconSizesDictionaryWithDeviceTypes:(IconDeviceType)deviceTypes
+                                           iconTypes:(IconType)iconTypes
+                                          osVersions:(IconOSVersion)osVersions
 {
     NSMutableDictionary *sizes = [NSMutableDictionary dictionary];
     
-    if ((deviceTypes & IconTypePhone) == IconTypePhone) {
-        if ((iconTypes & IconTypeHomeScreen) == IconTypeHomeScreen) {
-            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_6_1) {
+    if (deviceTypes & IconDeviceTypePhone) {
+        if (iconTypes & IconTypeHomeScreen) {
+            if (osVersions & IconOSVersion_6) {
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(57, 57)] forKey:@"Icon-57"]; // iPhone @2x
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(114, 114)] forKey:@"Icon-114"]; // iPhone @2x
             }
             
-            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_7_0) {
+            if (osVersions & IconOSVersion_7) {
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(120, 120)] forKey:@"Icon-120"]; // iPhone @2x
             }
         }
     }
     
-    if ((deviceTypes & IconTypePad) == IconTypePad) {
-        if ((iconTypes & IconTypeHomeScreen) == IconTypeHomeScreen) {
-            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_6_1) {
+    if (deviceTypes & IconDeviceTypePad) {
+        if (iconTypes & IconTypeHomeScreen) {
+            if (osVersions & IconOSVersion_6) {
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(72, 72)] forKey:@"Icon-72"]; // iPad @1x
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(144, 144)] forKey:@"Icon-144"]; // iPad @2x
             }
             
-            if ((osVersions & IconOSVersion_7_0) == IconOSVersion_7_0) {
+            if (osVersions & IconOSVersion_7) {
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(76, 76)] forKey:@"Icon-76"]; // iPad @1x
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(152, 152)] forKey:@"Icon-152"]; // iPad @2x
             }
         }
+    }
+    
+    
+    if (iconTypes & IconTypeArtwork) {
+        [sizes setObject:[NSValue valueWithSize:NSMakeSize(1024, 1024)] forKey:@"iTunesArtwork"];
     }
     
     return sizes;
@@ -77,60 +111,6 @@
     NSString *file = [filePath stringByAppendingPathExtension:@"png"];
 
     [data writeToFile:file atomically:NO];
-}
-
-+ (NSImage *)generateWithSize:(CGSize)size lineWidth:(CGFloat)lineWidth
-{
-    NSColor *backgroundColor = [NSColor colorWithCalibratedRed:.25 green:0.25 blue:.25 alpha:1.0];
-    
-    //// Color Declarations
-    NSColor* red = [NSColor colorWithCalibratedRed: 1 green: 0.176 blue: 0.333 alpha: 1];
-    NSColor* blue = [NSColor colorWithCalibratedRed: 0.353 green: 0.784 blue: 0.98 alpha: 1];
-    NSColor* yellow = [NSColor colorWithCalibratedRed: 1 green: 0.8 blue: 0 alpha: 1];
-    
-    CGFloat radiusOffset = (NSInteger)(size.width / 15);
-    
-    return [NSImage imageWithSize:size flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
-        [backgroundColor setFill];
-        NSRectFill(dstRect);
-        
-        NSPoint center = NSMakePoint(NSMidX(dstRect), NSMidY(dstRect));
-        
-        //// Yellow Arc Drawing
-        NSBezierPath* yellowArcPath = [NSBezierPath bezierPath];
-        [yellowArcPath appendBezierPathWithArcWithCenter:center
-                                                  radius:(NSInteger)((NSWidth(dstRect) - lineWidth * 2) / 2) - radiusOffset
-                                              startAngle:150
-                                                endAngle:278
-                                               clockwise:YES];
-        [yellow setStroke];
-        [yellowArcPath setLineWidth: lineWidth];
-        [yellowArcPath stroke];
-        
-        //// Blue Arc Drawing
-        NSBezierPath* blueArcPath = [NSBezierPath bezierPath];
-        [blueArcPath appendBezierPathWithArcWithCenter:center
-                                                radius:(NSInteger)((NSWidth(dstRect) - lineWidth * 4) / 2) - radiusOffset
-                                            startAngle:150
-                                              endAngle:323
-                                             clockwise:YES];
-        [blue setStroke];
-        [blueArcPath setLineWidth: lineWidth];
-        [blueArcPath stroke];
-        
-        //// Red Arc Drawing
-        NSBezierPath* redArcPath = [NSBezierPath bezierPath];
-        [redArcPath appendBezierPathWithArcWithCenter:center
-                                               radius:(NSInteger)((NSWidth(dstRect) - lineWidth * 6) / 2) - radiusOffset
-                                           startAngle:150
-                                             endAngle:8
-                                            clockwise:YES];
-        [red setStroke];
-        [redArcPath setLineWidth: lineWidth];
-        [redArcPath stroke];
-        
-        return YES;
-    }];
 }
 
 @end

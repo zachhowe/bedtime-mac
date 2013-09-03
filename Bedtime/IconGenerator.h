@@ -9,27 +9,32 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_OPTIONS(NSInteger, IconDeviceType) {
-    IconTypePhone,
-    IconTypePad
+    IconDeviceTypePhone = 1 << 0,
+    IconDeviceTypePad = 1 << 1
 };
 
 typedef NS_OPTIONS(NSInteger, IconType) {
-    IconTypeHomeScreen,
-    IconTypeSearch,
-    IconTypeSpotlight
+    IconTypeHomeScreen = 1 << 0,
+    IconTypeSearch = 1 << 1,
+    IconTypeSpotlight = 1 << 2,
+    IconTypeArtwork = 1 << 3
 };
 
 typedef NS_OPTIONS(NSInteger, IconOSVersion) {
-    IconOSVersion_6_1,
-    IconOSVersion_7_0
+    IconOSVersion_6 = 1 << 0,
+    IconOSVersion_7 = 1 << 1
 };
 
 @interface IconGenerator : NSObject
 
-+ (NSDictionary *)iconSizesDictionary;
++ (NSDictionary *)iconSizesDictionary DEPRECATED_ATTRIBUTE;
+
++ (NSDictionary *)iconSizesDictionaryWithDeviceTypes:(IconDeviceType)deviceTypes
+                                           iconTypes:(IconType)iconTypes
+                                          osVersions:(IconOSVersion)osVersions;
+
++ (NSImage *)resizeImage:(NSImage *)sourceImage size:(NSSize)newSize;
 
 + (void)saveImage:(NSImage *)image filePath:(NSString *)filePath type:(NSBitmapImageFileType)type;
-
-+ (NSImage *)generateWithSize:(CGSize)size lineWidth:(CGFloat)lineWidth;
 
 @end

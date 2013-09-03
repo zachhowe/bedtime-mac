@@ -19,6 +19,7 @@
 		8A0E3E5817D5AE2900B2E4C2 /* BedtimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E5717D5AE2900B2E4C2 /* BedtimeTests.m */; };
 		8A0E3E6317D5AEEA00B2E4C2 /* IconGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */; };
 		8A83051917D6621100F57748 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8A83051B17D6621100F57748 /* MainMenu.xib */; };
+		8A83051E17D681E800F57748 /* BedtimeIconGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A83051D17D681E800F57748 /* BedtimeIconGenerator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconGenerator.h; sourceTree = "<group>"; };
 		8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconGenerator.m; sourceTree = "<group>"; };
 		8A83051A17D6621100F57748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8A83051C17D681E800F57748 /* BedtimeIconGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BedtimeIconGenerator.h; sourceTree = "<group>"; };
+		8A83051D17D681E800F57748 /* BedtimeIconGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BedtimeIconGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +126,8 @@
 				8A83051B17D6621100F57748 /* MainMenu.xib */,
 				8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */,
 				8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */,
+				8A83051C17D681E800F57748 /* BedtimeIconGenerator.h */,
+				8A83051D17D681E800F57748 /* BedtimeIconGenerator.m */,
 				8A0E3E4517D5AE2900B2E4C2 /* Images.xcassets */,
 				8A0E3E3417D5AE2900B2E4C2 /* Supporting Files */,
 			);
@@ -263,6 +268,7 @@
 				8A0E3E4117D5AE2900B2E4C2 /* AppDelegate.m in Sources */,
 				8A0E3E6317D5AEEA00B2E4C2 /* IconGenerator.m in Sources */,
 				8A0E3E3A17D5AE2900B2E4C2 /* main.m in Sources */,
+				8A83051E17D681E800F57748 /* BedtimeIconGenerator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -411,7 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

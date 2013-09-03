@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "IconGenerator.h"
+#import "BedtimeIconGenerator.h"
 
 @interface AppDelegate ()
 
@@ -35,7 +35,7 @@ static CGSize ORIGINAL_SIZE;
 {
     CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];
     
-    NSImage *img = [IconGenerator generateWithSize:ORIGINAL_SIZE lineWidth:lineWidth];
+    NSImage *img = [BedtimeIconGenerator generateWithSize:ORIGINAL_SIZE lineWidth:lineWidth];
     
     if ([img isKindOfClass:[NSImage class]]) {
         self.previewImageView.image = img;
@@ -44,15 +44,22 @@ static CGSize ORIGINAL_SIZE;
 
 - (IBAction)saveImages:(id)sender
 {
-    NSSavePanel *savePanel = [NSSavePanel savePanel];
-    [savePanel setNameFieldStringValue:@"Icon"];
+    NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    [openPanel setCanChooseDirectories:YES];
+    [openPanel setCanChooseFiles:NO];
+    [openPanel setTitle:@"Choose Directory to Save Icons"];
+    [openPanel setPrompt:@"Choose"];
     
-    NSDictionary *sizes = [IconGenerator iconSizesDictionary];
+    NSDictionary *sizes = [BedtimeIconGenerator iconSizesDictionaryWithDeviceTypes:IconDeviceTypePhone
+                                                                         iconTypes:(IconTypeHomeScreen | IconTypeArtwork)
+                                                                        osVersions:IconOSVersion_7];
 
     CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];
     
-    [savePanel beginWithCompletionHandler:^(NSInteger result) {
-        NSURL *directoryURL = [savePanel directoryURL];
+    NSImage *originalImage = [BedtimeIconGenerator generateWithSize:ORIGINAL_SIZE lineWidth:lineWidth];
+    
+    [openPanel beginWithCompletionHandler:^(NSInteger result) {
+        NSURL *directoryURL = [openPanel directoryURL];
         NSString *directoryPath = [directoryURL path];
         
         if (result == NSFileHandlingPanelOKButton) {
@@ -60,14 +67,14 @@ static CGSize ORIGINAL_SIZE;
                 NSString *filename = (NSString *)key;
                 NSValue *sizeValue = (NSValue *)obj;
                 
+                NSString *filePath = [directoryPath stringByAppendingPathComponent:filename];
                 NSSize size = [sizeValue sizeValue];
                 
-                CGFloat usedLineWidth = (NSInteger)(lineWidth * (size.width / ORIGINAL_SIZE.width));
+                NSImage *img = [BedtimeIconGenerator resizeImage:originalImage size:size];
                 
-                NSString *filePath = [directoryPath stringByAppendingPathComponent:filename];
-                
-                NSImage *img = [IconGenerator generateWithSize:size lineWidth:usedLineWidth];
-                [IconGenerator saveImage:img filePath:filePath type:NSPNGFileType];
+                [BedtimeIconGenerator saveImage:img
+                                       filePath:filePath
+                                           type:NSPNGFileType];
             }];
         }
     }];
