@@ -51,7 +51,7 @@ static CGSize ORIGINAL_SIZE;
     [openPanel setPrompt:@"Choose"];
     
     NSDictionary *sizes = [BedtimeIconGenerator iconSizesDictionaryWithDeviceTypes:IconDeviceTypePhone
-                                                                         iconTypes:(IconTypeHomeScreen | IconTypeArtwork)
+                                                                         iconTypes:(IconTypeHomeScreen | IconTypeSpotlight | IconTypeArtwork)
                                                                         osVersions:IconOSVersion_7];
 
     CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];

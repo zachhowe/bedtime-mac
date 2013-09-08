@@ -53,7 +53,7 @@
 		8A0E3E5717D5AE2900B2E4C2 /* BedtimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BedtimeTests.m; sourceTree = "<group>"; };
 		8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IconGenerator.h; sourceTree = "<group>"; };
 		8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IconGenerator.m; sourceTree = "<group>"; };
-		8A83051A17D6621100F57748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		8A83051A17D6621100F57748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8A83051C17D681E800F57748 /* BedtimeIconGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BedtimeIconGenerator.h; sourceTree = "<group>"; };
 		8A83051D17D681E800F57748 /* BedtimeIconGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BedtimeIconGenerator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */

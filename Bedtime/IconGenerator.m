@@ -75,6 +75,14 @@
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(120, 120)] forKey:@"Icon-120"]; // iPhone @2x
             }
         }
+        if (iconTypes & IconTypeSpotlight) {
+            if (osVersions & IconOSVersion_6) {
+            }
+            
+            if (osVersions & IconOSVersion_7) {
+                [sizes setObject:[NSValue valueWithSize:NSMakeSize(80, 80)] forKey:@"Icon-80"]; // iPhone @2x
+            }
+        }
     }
     
     if (deviceTypes & IconDeviceTypePad) {
