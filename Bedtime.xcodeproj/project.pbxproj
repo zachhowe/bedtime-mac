@@ -56,6 +56,7 @@
 		8A83051A17D6621100F57748 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8A83051C17D681E800F57748 /* BedtimeIconGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BedtimeIconGenerator.h; sourceTree = "<group>"; };
 		8A83051D17D681E800F57748 /* BedtimeIconGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BedtimeIconGenerator.m; sourceTree = "<group>"; };
+		8AA10CB217DD0E3B002A26E9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +124,7 @@
 			children = (
 				8A0E3E3F17D5AE2900B2E4C2 /* AppDelegate.h */,
 				8A0E3E4017D5AE2900B2E4C2 /* AppDelegate.m */,
+				8AA10CB217DD0E3B002A26E9 /* Constants.h */,
 				8A83051B17D6621100F57748 /* MainMenu.xib */,
 				8A0E3E6117D5AEEA00B2E4C2 /* IconGenerator.h */,
 				8A0E3E6217D5AEEA00B2E4C2 /* IconGenerator.m */,

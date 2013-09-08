@@ -10,6 +10,6 @@
 
 @interface BedtimeIconGenerator : IconGenerator
 
-+ (NSImage *)generateWithSize:(CGSize)size lineWidth:(CGFloat)lineWidth;
++ (NSImage *)generateWithSize:(CGSize)size lineWidth:(CGFloat)lineWidth spacingOffset:(CGFloat)spacingOffset;
 
 @end

@@ -14,6 +14,7 @@
 
 @property (weak) IBOutlet NSImageView *previewImageView;
 @property (weak) IBOutlet NSTextField *strokeWidthTextField;
+@property (weak) IBOutlet NSTextField *strokeSpacingTextField;
 
 @end
 
@@ -31,11 +32,17 @@ static CGSize ORIGINAL_SIZE;
     [self updatePreview:nil];
 }
 
-- (IBAction)updatePreview:(id)sender
+- (NSImage *)generateImage
 {
     CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];
+    CGFloat spacing = [self.strokeSpacingTextField.stringValue floatValue];
     
-    NSImage *img = [BedtimeIconGenerator generateWithSize:ORIGINAL_SIZE lineWidth:lineWidth];
+    return [BedtimeIconGenerator generateWithSize:ORIGINAL_SIZE lineWidth:lineWidth spacingOffset:spacing];
+}
+
+- (IBAction)updatePreview:(id)sender
+{
+    NSImage *img = [self generateImage];
     
     if ([img isKindOfClass:[NSImage class]]) {
         self.previewImageView.image = img;
@@ -50,13 +57,11 @@ static CGSize ORIGINAL_SIZE;
     [openPanel setTitle:@"Choose Directory to Save Icons"];
     [openPanel setPrompt:@"Choose"];
     
-    NSDictionary *sizes = [BedtimeIconGenerator iconSizesDictionaryWithDeviceTypes:IconDeviceTypePhone
+    NSDictionary *sizes = [BedtimeIconGenerator iconSizesDictionaryWithDeviceTypes:(IconDeviceTypePhone)
                                                                          iconTypes:(IconTypeHomeScreen | IconTypeSpotlight | IconTypeArtwork)
-                                                                        osVersions:IconOSVersion_7];
-
-    CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];
+                                                                        osVersions:(IconOSVersion_7)];
     
-    NSImage *originalImage = [BedtimeIconGenerator generateWithSize:ORIGINAL_SIZE lineWidth:lineWidth];
+    NSImage *originalImage = [self generateImage];
     
     [openPanel beginWithCompletionHandler:^(NSInteger result) {
         NSURL *directoryURL = [openPanel directoryURL];

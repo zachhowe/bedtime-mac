@@ -75,6 +75,7 @@
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(120, 120)] forKey:@"Icon-120"]; // iPhone @2x
             }
         }
+        
         if (iconTypes & IconTypeSpotlight) {
             if (osVersions & IconOSVersion_6) {
             }
@@ -95,6 +96,14 @@
             if (osVersions & IconOSVersion_7) {
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(76, 76)] forKey:@"Icon-76"]; // iPad @1x
                 [sizes setObject:[NSValue valueWithSize:NSMakeSize(152, 152)] forKey:@"Icon-152"]; // iPad @2x
+            }
+        }
+        
+        if (iconTypes & IconTypeSpotlight) {
+            if (osVersions & IconOSVersion_6) {
+            }
+            
+            if (osVersions & IconOSVersion_7) {
             }
         }
     }
