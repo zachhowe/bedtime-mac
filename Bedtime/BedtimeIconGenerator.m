@@ -23,7 +23,6 @@
             imageWithSize:size
             flipped:NO
             drawingHandler:^BOOL(NSRect dstRect) {
-                
         [backgroundColor setFill];
         NSRectFill(dstRect);
         

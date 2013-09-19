@@ -29,7 +29,32 @@ static CGSize ORIGINAL_SIZE;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [self loadSettings];
+    
     [self updatePreview:nil];
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification
+{
+    [self saveSettings];
+}
+
+- (void)loadSettings
+{
+    CGFloat lineWidth = [[NSUserDefaults standardUserDefaults] floatForKey:@"LineWidth"];
+    CGFloat spacing = [[NSUserDefaults standardUserDefaults] floatForKey:@"Spacing"];
+    
+    self.strokeWidthTextField.stringValue = [NSString stringWithFormat:@"%li", (NSInteger)lineWidth];
+    self.strokeSpacingTextField.stringValue = [NSString stringWithFormat:@"%li", (long)spacing];
+}
+
+- (void)saveSettings
+{
+    CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];
+    CGFloat spacing = [self.strokeSpacingTextField.stringValue floatValue];
+    
+    [[NSUserDefaults standardUserDefaults] setFloat:lineWidth forKey:@"LineWidth"];
+    [[NSUserDefaults standardUserDefaults] setFloat:spacing forKey:@"Spacing"];
 }
 
 - (NSImage *)generateImage
@@ -47,6 +72,8 @@ static CGSize ORIGINAL_SIZE;
     if ([img isKindOfClass:[NSImage class]]) {
         self.previewImageView.image = img;
     }
+    
+    [self saveSettings];
 }
 
 - (IBAction)saveImages:(id)sender
@@ -55,7 +82,7 @@ static CGSize ORIGINAL_SIZE;
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:NO];
     [openPanel setTitle:@"Choose Directory to Save Icons"];
-    [openPanel setPrompt:@"Choose"];
+    [openPanel setPrompt:@"Save"];
     
     NSDictionary *sizes = [BedtimeIconGenerator iconSizesDictionaryWithDeviceTypes:(IconDeviceTypePhone)
                                                                          iconTypes:(IconTypeHomeScreen | IconTypeSpotlight | IconTypeArtwork)
