@@ -22,25 +22,20 @@
 
 static CGSize ORIGINAL_SIZE;
 
-+ (void)initialize
-{
++ (void)initialize {
     ORIGINAL_SIZE = NSMakeSize(1024, 1024);
 }
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     [self loadSettings];
-    
     [self updatePreview:nil];
 }
 
-- (void)applicationWillTerminate:(NSNotification *)notification
-{
+- (void)applicationWillTerminate:(NSNotification *)notification {
     [self saveSettings];
 }
 
-- (void)loadSettings
-{
+- (void)loadSettings {
     CGFloat lineWidth = [[NSUserDefaults standardUserDefaults] floatForKey:@"LineWidth"];
     CGFloat spacing = [[NSUserDefaults standardUserDefaults] floatForKey:@"Spacing"];
     
@@ -48,8 +43,7 @@ static CGSize ORIGINAL_SIZE;
     self.strokeSpacingTextField.stringValue = [NSString stringWithFormat:@"%li", (long)spacing];
 }
 
-- (void)saveSettings
-{
+- (void)saveSettings {
     CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];
     CGFloat spacing = [self.strokeSpacingTextField.stringValue floatValue];
     
@@ -57,16 +51,14 @@ static CGSize ORIGINAL_SIZE;
     [[NSUserDefaults standardUserDefaults] setFloat:spacing forKey:@"Spacing"];
 }
 
-- (NSImage *)generateImage
-{
+- (NSImage *)generateImage {
     CGFloat lineWidth = [self.strokeWidthTextField.stringValue floatValue];
     CGFloat spacing = [self.strokeSpacingTextField.stringValue floatValue];
     
     return [BedtimeIconGenerator generateWithSize:ORIGINAL_SIZE lineWidth:lineWidth spacingOffset:spacing];
 }
 
-- (IBAction)updatePreview:(id)sender
-{
+- (IBAction)updatePreview:(id)sender {
     NSImage *img = [self generateImage];
     
     if ([img isKindOfClass:[NSImage class]]) {
@@ -76,8 +68,7 @@ static CGSize ORIGINAL_SIZE;
     [self saveSettings];
 }
 
-- (IBAction)saveImages:(id)sender
-{
+- (IBAction)saveImages:(id)sender {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setCanChooseFiles:NO];

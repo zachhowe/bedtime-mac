@@ -10,8 +10,7 @@
 
 @implementation BedtimeIconGenerator
 
-+ (NSImage *)generateWithSize:(CGSize)size lineWidth:(CGFloat)lineWidth spacingOffset:(CGFloat)spacingOffset
-{
++ (NSImage *)generateWithSize:(CGSize)size lineWidth:(CGFloat)lineWidth spacingOffset:(CGFloat)spacingOffset {
     NSColor *backgroundColor = BACKGROUND_COLOR;
     NSColor *redColor = RED_COLOR;
     NSColor *blueColor = BLUE_COLOR;

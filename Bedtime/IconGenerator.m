@@ -10,8 +10,7 @@
 
 @implementation IconGenerator
 
-+ (NSImage *)resizeImage:(NSImage *)originalImage size:(NSSize)newSize
-{
++ (NSImage *)resizeImage:(NSImage *)originalImage size:(NSSize)newSize {
     NSImage *sourceImage = [originalImage copy];
     [sourceImage setScalesWhenResized:YES];
     
@@ -37,8 +36,7 @@
     return smallImage;
 }
 
-+ (NSDictionary *)iconSizesDictionary
-{
++ (NSDictionary *)iconSizesDictionary {
     NSMutableDictionary *sizes = [NSMutableDictionary dictionary];
     
     // iOS 6 Sizes:
@@ -60,8 +58,7 @@
 
 + (NSDictionary *)iconSizesDictionaryWithDeviceTypes:(IconDeviceType)deviceTypes
                                            iconTypes:(IconType)iconTypes
-                                          osVersions:(IconOSVersion)osVersions
-{
+                                          osVersions:(IconOSVersion)osVersions {
     NSMutableDictionary *sizes = [NSMutableDictionary dictionary];
     
     if (deviceTypes & IconDeviceTypePhone) {
@@ -116,8 +113,7 @@
     return sizes;
 }
 
-+ (void)saveImage:(NSImage *)image filePath:(NSString *)filePath type:(NSBitmapImageFileType)type
-{
++ (void)saveImage:(NSImage *)image filePath:(NSString *)filePath type:(NSBitmapImageFileType)type {
     if (type != NSPNGFileType) {
         return;
     }
