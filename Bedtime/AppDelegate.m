@@ -39,6 +39,14 @@ static CGSize ORIGINAL_SIZE;
     CGFloat lineWidth = [[NSUserDefaults standardUserDefaults] floatForKey:@"LineWidth"];
     CGFloat spacing = [[NSUserDefaults standardUserDefaults] floatForKey:@"Spacing"];
     
+    // Defaults
+    if (lineWidth == 0.0) {
+        lineWidth = 110.0;
+    }
+    if (spacing == 0.0) {
+        lineWidth = 10.0;
+    }
+    
     self.strokeWidthTextField.stringValue = [NSString stringWithFormat:@"%li", (NSInteger)lineWidth];
     self.strokeSpacingTextField.stringValue = [NSString stringWithFormat:@"%li", (long)spacing];
 }

@@ -15,7 +15,7 @@ typedef NS_OPTIONS(NSInteger, IconDeviceType) {
 
 typedef NS_OPTIONS(NSInteger, IconType) {
     IconTypeHomeScreen = 1 << 0,
-    IconTypeSearch = 1 << 1,
+    IconTypeSettings = 1 << 1,
     IconTypeSpotlight = 1 << 2,
     IconTypeArtwork = 1 << 3
 };
@@ -26,8 +26,6 @@ typedef NS_OPTIONS(NSInteger, IconOSVersion) {
 };
 
 @interface IconGenerator : NSObject
-
-+ (NSDictionary *)iconSizesDictionary DEPRECATED_ATTRIBUTE;
 
 + (NSDictionary *)iconSizesDictionaryWithDeviceTypes:(IconDeviceType)deviceTypes
                                            iconTypes:(IconType)iconTypes

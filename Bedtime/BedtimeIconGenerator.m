@@ -18,10 +18,7 @@
     
     CGFloat radiusOffset = (size.width / 100);
     
-    return [NSImage
-            imageWithSize:size
-            flipped:NO
-            drawingHandler:^BOOL(NSRect dstRect) {
+    return [NSImage imageWithSize:size flipped:NO drawingHandler:^BOOL(NSRect dstRect) {
         [backgroundColor setFill];
         NSRectFill(dstRect);
         
